@@ -3,9 +3,6 @@ import SimpleCellRenderer from './simpleCellRenderer.jsx';
 
 import {AgGridReact} from 'ag-grid-react';
 
-// put this line in to use ag-Grid enterprise
-// import 'ag-grid-enterprise';
-
 export default class MyApp extends Component {
 
     constructor() {
