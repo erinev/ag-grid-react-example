@@ -34,7 +34,7 @@ export default class LargeGrid extends Component {
                     defaultColDef={{
                         autoHeight: true,
                         cellStyle: { 'white-space': 'normal' },
-                        // TODO: uncomment line below and scroll the list in order to see what performance degradation is caused by React cell renderer
+                        // TODO: uncomment line below and scroll the list &| resize column in order to see what performance degradation is caused by React cell renderer
                         // cellRendererFramework: SimpleCellRenderer 
                     }}
                     columnDefs={this.props.columnDefs} 
