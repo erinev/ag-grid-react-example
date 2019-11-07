@@ -1,17 +1,24 @@
-ag-Grid React Example
+# ag-Grid React Example
+
 ==============
 
 ## Examples
 
-1. large - shows a very large grid (767 columns and 1,000 rows) using React cell renderers
+- large - shows a very large grid using React cell renderers
 
 See [www.ag-grid.com](http://www.ag-grid.com) for full documentation and examples.
 
-Building
+## How to run
+
 ==============
 
-To build:
+Steps:
 
 - `npm install`
-- `npm start`
+- `npm install -g json-server`
+- open terminal in ./grid-data directory and run one of:  
+    1) 100 columns & 500 rows: `json-server 100x500_gridData.json --read-only true`
+    2) 100 columns & 2000 rows: `json-server 100x2000_gridData.json --read-only true`
+    3) 100 columns & 10000 rows: `json-server 100x10000_gridData.json --read-only true`
+- open another terminal in root directory and run: `npm start`
 - navigate to localhost:8080

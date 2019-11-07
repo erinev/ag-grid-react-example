@@ -3,7 +3,7 @@ const path = require('path');
 const SRC_DIR = path.resolve(__dirname, '../src-large-data');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: SRC_DIR + "/index.js",
     output: {
         path: path.resolve(__dirname, '../'),
