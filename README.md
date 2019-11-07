@@ -2,23 +2,27 @@
 
 ==============
 
-## Examples
-
-- large - shows a very large grid using React cell renderers
-
-See [www.ag-grid.com](http://www.ag-grid.com) for full documentation and examples.
-
 ## How to run
 
 ==============
 
 Steps:
 
-- `npm install`
-- `npm install -g json-server`
-- open terminal in ./grid-data directory and run one of:  
-    1) 100 columns & 500 rows: `json-server 100x500_gridData.json --read-only true`
-    2) 100 columns & 2000 rows: `json-server 100x2000_gridData.json --read-only true`
-    3) 100 columns & 10000 rows: `json-server 100x10000_gridData.json --read-only true`
+- run `npm install`
+- run `npm install -g json-server`
+- open terminal in ./grid-data directory and run:  
+    1) 100 columns & 2000 rows: `json-server 100x2000_rowData.json --watch --read-only true`
 - open another terminal in root directory and run: `npm start`
 - navigate to localhost:8080
+
+## How to regenerate grid data jsons:
+
+==============
+
+Steps:
+
+- Alter `gridDataGenerator.js` file with needed changes (different column count, different row count, etc)
+- open new terminal and run: `node gridDataGenerator.js`
+- If row count or column count was changed you need to re-run json server: `json-server {ColumnCount}x{RowCount}_rowData.json --watch --read-only true`
+
+==============
