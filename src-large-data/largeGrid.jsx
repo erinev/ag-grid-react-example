@@ -16,7 +16,7 @@ export default class LargeGrid extends Component {
 
         this.gridColumnApi.setColumnPinned('RowNumber', true)
 
-        this.gridApi.sizeColumnsToFit();
+        setTimeout(this.gridApi.sizeColumnsToFit(), 150);
     }
 
     render() {
@@ -27,7 +27,8 @@ export default class LargeGrid extends Component {
                         minWidth: 250,
                         autoHeight: true,
                         cellStyle: { 'white-space': 'normal' },
-                        // cellRendererFramework: SimpleCellRenderer
+                        // TODO: uncomment line below and scroll the list in order to see what performance degradation is caused by React cell renderer
+                        // cellRendererFramework: SimpleCellRenderer 
                     }}
                     columnDefs={this.props.columnDefs} 
 
