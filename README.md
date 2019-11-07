@@ -1,4 +1,4 @@
-# ag-grid React Performance Example with bigger data sets
+# ag-grid React Performance POC
 
 ## How to run
 
