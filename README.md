@@ -10,12 +10,11 @@ Steps:
 
 - run `npm install`
 - run `npm install -g json-server`
-- open terminal in ./grid-data directory and run:  
-    1) 100 columns & 2000 rows: `json-server 100x2000_rowData.json --watch --read-only true`
+- open terminal in ./grid-data directory and run: `json-server 100x2000_rowData.json --watch --read-only true`
 - open another terminal in root directory and run: `npm start`
-- navigate to localhost:8080
+- navigate to `http://localhost:8080`
 
-## How to regenerate grid data jsons:
+## How to regenerate grid-data jsons
 
 ==============
 
