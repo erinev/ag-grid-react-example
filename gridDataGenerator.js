@@ -4,7 +4,9 @@ const fs = require('fs');
 
 const columnCount = 100;
 const rowCount = 2 * 1000;
-const maxWordsPerCell = 30;
+const wordsCountInResizableColumn = 200;
+const maxWordsPerCellInOtherColumns = 30;
+
 
 const gridDataSize = `${columnCount}x${rowCount}`;
 const columnDefsFileName = `./grid-data/${gridDataSize}_columnDefs.json`;
@@ -25,17 +27,29 @@ let columnDefs = [];
 
 const firstColumnDef = {
     headerName: `RowNumber`,
-    field: `RowNumber`,
+    field: `RowNumberField`,
     width: 110,
     suppressSizeToFit: true
 }
 columnDefs.push(firstColumnDef);
 
 for (let i = 1; i < columnCount; i++) {
-    const columnDef = {
-        headerName: `HeaderName_${i}`,
-        field: `HeaderField_${i}`
-    };
+    let columnDef = {};
+
+    if (i === 1) {
+        columnDef = {
+            headerName: `Resizable_Header_${i}`,
+            field: `ResizableHeaderField_${i}`,
+            resizable: true,
+            suppressSizeToFit: true
+        };
+    } else {
+        columnDef = {
+            headerName: `Static_Header_${i}`,
+            field: `StaticHeaderField_${i}`,
+            minWidth: 180
+        };
+    }
 
     columnDefs.push(columnDef);
 }
@@ -64,8 +78,10 @@ for (let i = 1; i <= rowCount; i++) {
     columnDefs.forEach((columnDef, index) => {
         if (index === 0) {
             rowData[columnDef.field] = `row_${i}`;
+        } else if (index === 1) {
+            rowData[columnDef.field] = faker.lorem.words(wordsCountInResizableColumn);
         } else {
-            rowData[columnDef.field] = faker.lorem.words(Math.random() * maxWordsPerCell);
+            rowData[columnDef.field] = faker.lorem.words(Math.random() * maxWordsPerCellInOtherColumns);
         }
     }); 
 

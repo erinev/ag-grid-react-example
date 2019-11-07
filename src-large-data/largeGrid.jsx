@@ -8,6 +8,7 @@ export default class LargeGrid extends Component {
         super();
 
         this.handleGridReady = this.handleGridReady.bind(this);
+        this.handleColumnResized = this.handleColumnResized.bind(this);
     }
 
     handleGridReady({ api, columnApi }) {
@@ -19,12 +20,18 @@ export default class LargeGrid extends Component {
         setTimeout(this.gridApi.sizeColumnsToFit(), 150);
     }
 
+    handleColumnResized({ finished }) {
+        if (finished) {
+            console.log('handleColumnResized triggered!');
+            this.gridApi.resetRowHeights();
+        }
+    }
+
     render() {
         return (
             <div style={{height: '100%'}} className="ag-theme-fresh">
                 <AgGridReact 
                     defaultColDef={{
-                        minWidth: 250,
                         autoHeight: true,
                         cellStyle: { 'white-space': 'normal' },
                         // TODO: uncomment line below and scroll the list in order to see what performance degradation is caused by React cell renderer
@@ -35,6 +42,7 @@ export default class LargeGrid extends Component {
                     rowData={this.props.rowData}
 
                     onGridReady={this.handleGridReady}
+                    onColumnResized={this.handleColumnResized}
                 />
             </div>
         );
