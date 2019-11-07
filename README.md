@@ -1,10 +1,6 @@
-# ag-Grid React Example
-
-==============
+# ag-grid React Performance Example with bigger data sets
 
 ## How to run
-
-==============
 
 Steps:
 
@@ -16,12 +12,8 @@ Steps:
 
 ## How to regenerate grid-data jsons
 
-==============
-
 Steps:
 
 - Alter `gridDataGenerator.js` file with needed changes (different column count, different row count, etc)
 - open new terminal and run: `node gridDataGenerator.js`
 - If row count or column count was changed you need to re-run json server: `json-server {ColumnCount}x{RowCount}_rowData.json --watch --read-only true`
-
-==============
